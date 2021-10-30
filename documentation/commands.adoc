@@ -1,0 +1,35 @@
+== Setup commands
+
+.Commands
+[source,bash]
+----
+// create solution
+dotnet new sln
+
+// create projects
+dotnet new classlib -o src/reader
+dotnet new classlib -o src/configuration
+dotnet new classlib -o src/configuration_test
+dotnet new xunit -o src/configuration_test
+dotnet new classlib -o src/mapper
+
+// add to solution
+dotnet sln add src/reader/reader.csproj
+dotnet sln add src/configuration/configuration.csproj
+dotnet sln add src/configuration_test/configuration_test.csproj
+dotnet sln add src/mapper/mapper.csproj
+
+// add reference
+dotnet add ./src/configuration_test/configuration_test.csproj reference ./src/configuration/configuration.csproj
+----
+
+.Dependencies
+[source,bash]
+----
+
+dotnet add package xunit --version 2.4.1
+dotnet add package FluentAssertions --version 6.0.0
+
+dotnet add package SpecFlow --version 3.9.22
+----
+

@@ -1,0 +1,39 @@
+{
+  "description" : "Schema for configuration.",
+  "schema_description": {
+    "type": "string",
+    "minLength": 5,
+    "maxLength": 100,
+    "regex": "^[a-zA-Z0-9]?"
+  },
+  "configs": {
+    "type": "array",
+    "items": {
+      "$ref": "#/$defs/name"
+    }
+  },
+  "required": [
+    "description",
+    "configs"
+  ],
+  "$defs": {
+    "config": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "from_type": {
+          "enum": [
+            "string",
+            "number",
+            "date"
+          ]
+        },
+        "from_format": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
