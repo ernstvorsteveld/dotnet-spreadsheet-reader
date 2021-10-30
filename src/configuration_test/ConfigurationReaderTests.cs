@@ -13,7 +13,7 @@ namespace configuration_test
             var schemaJson = System.IO.File.ReadAllText("configuration_schema.json");
             schemaJson.Should().NotBeNull();
             
-            JSchema schema = JSchema.Parse(schemaJson);
+            var schema = JSchema.Parse(schemaJson);
             schema.Description.Should().Be("Schema for configuration.");
         }
     }
