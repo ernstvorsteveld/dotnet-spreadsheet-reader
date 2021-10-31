@@ -1,21 +1,22 @@
 using System;
+using io;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 
 namespace configuration
 {
-    public class ConfigurationReader
+    public class FileConfigurationReader : IConfigurationReader
     {
         private string _filename;
         private string _schema;
 
-        public ConfigurationReader Schema(string schema)
+        public FileConfigurationReader Schema(string schema)
         {
             this._schema = schema;
             return this;
         }
 
-        public ConfigurationReader File(string filename)
+        public FileConfigurationReader Configuration(string filename)
         {
             this._filename = filename;
             return this;
@@ -24,8 +25,7 @@ namespace configuration
         public Configuration Execute()
         {
             ValidateConfiguration();
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Configuration>(
-                System.IO.File.ReadAllText(this._filename));
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Configuration>(new FileReader(this._filename).Read());
         }
 
         private void ValidateConfiguration()
@@ -41,12 +41,12 @@ namespace configuration
 
         private JObject ReadAndParse(string file)
         {
-            var json = System.IO.File.ReadAllText(file);
+            var json = new FileReader(file).Read();
             return (JObject) JSchema.Parse(json);
         }
     }
 
-    internal class SchemaNotValidException : Exception
+    public class SchemaNotValidException : Exception
     {
     }
 }

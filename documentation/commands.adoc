@@ -12,20 +12,24 @@ dotnet new classlib -o src/configuration
 dotnet new classlib -o src/configuration_test
 dotnet new xunit -o src/configuration_test
 dotnet new classlib -o src/mapper
+dotnet new classlib -o src/io
 
 // add to solution
 dotnet sln add src/reader/reader.csproj
 dotnet sln add src/configuration/configuration.csproj
 dotnet sln add src/configuration_test/configuration_test.csproj
 dotnet sln add src/mapper/mapper.csproj
+dotnet sln add src/io/io.csproj
 
 // add reference
 dotnet add ./src/configuration_test/configuration_test.csproj reference ./src/configuration/configuration.csproj
+dotnet add ./src/configuration/configuration.csproj reference ./src/io/io.csproj
 ----
 
 .Dependencies
 [source,bash]
 ----
+dotnet add package Newtonsoft.Json.Schema --version 3.0.14
 
 dotnet add package xunit --version 2.4.1
 dotnet add package FluentAssertions --version 6.0.0

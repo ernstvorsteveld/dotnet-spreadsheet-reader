@@ -1,4 +1,5 @@
 using FluentAssertions;
+using io;
 using Newtonsoft.Json.Schema;
 using Xunit;
 
@@ -9,7 +10,7 @@ namespace configuration_test
         [Fact]
         public void should_read_and_validate_jsonschema()
         {
-            var schemaJson = System.IO.File.ReadAllText("configuration_schema.json");
+            var schemaJson = new FileReader("configuration_schema.json").Read();
             schemaJson.Should().NotBeNull();
 
             var schema = JSchema.Parse(schemaJson);

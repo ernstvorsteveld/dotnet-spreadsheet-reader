@@ -1,6 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=55d39875_002Dfc1e_002D43ed_002Dba82_002Df6f6b7ae2c7c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="should_read_and_validate_jsonschema" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.ConfigurationReaderTests.should_read_and_validate_jsonschema&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.JsonSchemaReaderTests.should_read_and_validate_jsonschema&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
