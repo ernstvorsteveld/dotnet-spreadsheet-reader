@@ -8,22 +8,27 @@ dotnet new sln
 
 // create projects
 dotnet new classlib -o src/reader
+dotnet new xunit -o test/reader_test
 dotnet new classlib -o src/configuration
-dotnet new classlib -o src/configuration_test
+dotnet new classlib -o test/configuration_test
 dotnet new xunit -o src/configuration_test
 dotnet new classlib -o src/mapper
 dotnet new classlib -o src/io
 
 // add to solution
 dotnet sln add src/reader/reader.csproj
+dotnet sln add test/reader_test/reader_test.csproj
 dotnet sln add src/configuration/configuration.csproj
-dotnet sln add src/configuration_test/configuration_test.csproj
+dotnet sln add test/configuration_test/configuration_test.csproj
 dotnet sln add src/mapper/mapper.csproj
 dotnet sln add src/io/io.csproj
 
 // add reference
-dotnet add ./src/configuration_test/configuration_test.csproj reference ./src/configuration/configuration.csproj
+dotnet add ./test/configuration_test/configuration_test.csproj reference ./src/configuration/configuration.csproj
+dotnet add ./test/reader_test/reader_test.csproj reference ./src/reader/reader.csproj
 dotnet add ./src/configuration/configuration.csproj reference ./src/io/io.csproj
+
+dotnet add ./src/reader/reader.csproj reference ./src/configuration/configuration.csproj
 ----
 
 .Dependencies
