@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using io;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
@@ -30,23 +31,33 @@ namespace configuration
 
         private void ValidateConfiguration()
         {
-            var schema = ReadAndParse(this._schema);
-            var configuration = ReadAndParse(this._filename);
-            var valid = configuration.IsValid(((JSchema) schema)!);
+            var schema = ReadAndParseSchema(this._schema);
+            var configuration = ReadAndParseJson(this._filename);
+            var valid = configuration.IsValid(schema!, out IList<string> errorMessages);
             if (!valid)
             {
-                throw new SchemaNotValidException();
+                throw new ConfigurationNotValidException(errorMessages);
             }
         }
 
-        private JObject ReadAndParse(string file)
+        private JObject ReadAndParseJson(string file)
         {
-            var json = new FileReader(file).Read();
-            return (JObject) JSchema.Parse(json);
+            return JObject.Parse(new FileReader(file).Read());
+        }
+
+        private JSchema ReadAndParseSchema(string file)
+        {
+            return JSchema.Parse(new FileReader(file).Read());
         }
     }
 
-    public class SchemaNotValidException : Exception
+    public class ConfigurationNotValidException : Exception
     {
+        private readonly IList<string> _errors;
+
+        public ConfigurationNotValidException(IList<string> errorMessages)
+        {
+            _errors = errorMessages;
+        }
     }
 }

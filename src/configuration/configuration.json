@@ -1,3 +1,14 @@
 {
-  
+  "configuration_description" : "erdgaz",
+  "mappings" : [
+    {
+      "from" : {
+        "column": "SupplierNumber",
+        "from_type": "integer"
+      },
+      "to" : {
+        "destination": "supplier"
+      }
+    }
+  ]
 }

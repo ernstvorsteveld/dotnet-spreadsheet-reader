@@ -1,36 +1,56 @@
 {
-  "description" : "Schema for configuration.",
-  "schema_description": {
+  "description": "Schema for configuration.",
+  "configuration_description": {
     "type": "string",
     "minLength": 5,
-    "maxLength": 100,
+    "maxLength": 150,
     "regex": "^[a-zA-Z0-9]?"
   },
-  "configs": {
+  "mappings": {
     "type": "array",
     "items": {
-      "$ref": "#/$defs/name"
+      "$ref": "#/$defs/mapping"
     }
   },
   "required": [
-    "description",
-    "configs"
+    "mappings", "configuration_description"
   ],
   "$defs": {
-    "config": {
+    "mapping": {
       "type": "object",
       "properties": {
         "from": {
+          "$ref": "#/$defs/from"
+        },
+        "to": {
+          "$ref": "#/$defs/to"
+        }
+      }
+    },
+    "from": {
+      "properties": {
+        "column": {
           "type": "string"
         },
         "from_type": {
           "enum": [
             "string",
+            "integer",
             "number",
             "date"
           ]
         },
         "from_format": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "column"
+      ]
+    },
+    "to": {
+      "properties": {
+        "destination": {
           "type": "string"
         }
       }
