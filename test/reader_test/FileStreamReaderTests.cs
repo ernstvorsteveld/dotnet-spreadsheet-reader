@@ -1,9 +1,6 @@
-using System;
-using configuration;
-using io;
-using Newtonsoft.Json;
 using reader;
 using Xunit;
+using FluentAssertions;
 
 namespace reader_test
 {
@@ -15,7 +12,8 @@ namespace reader_test
             var reader = new FileStreamReader()
                 .Configuration("configuration_schema.json", "configuration.json")
                 .FilePath("products1.xlsx");
-            reader.Next();
+            var line = reader.Next();
+            ((string) line["supplier"]).Should().Be("none");
         }
     }
 }
