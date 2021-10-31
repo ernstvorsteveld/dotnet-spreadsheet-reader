@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace configuration
+﻿namespace configuration
 {
     public class Configuration
     {

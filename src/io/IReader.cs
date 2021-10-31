@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace io
+﻿namespace io
 {
     public interface IReader<out TO>
     {
