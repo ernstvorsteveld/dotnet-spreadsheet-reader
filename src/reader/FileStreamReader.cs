@@ -17,6 +17,7 @@ namespace reader
 
         public FileStreamReader FilePath(string filePath)
         {
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             var stream = File.Open(filePath, FileMode.Open, FileAccess.Read);
             // Auto-detect format, supports:
             //  - Binary Excel files (2.0-2003 format; *.xls)
@@ -25,9 +26,12 @@ namespace reader
             return this;
         }
 
-        public FileStreamReader Configuration(Configuration configuration)
+        public FileStreamReader Configuration(string schema, string configuration)
         {
-            _configuration = configuration;
+            _configuration = new FileConfigurationReader()
+                .Schema(schema)
+                .Configuration(configuration)
+                .Execute();
             return this;
         }
 
@@ -46,7 +50,6 @@ namespace reader
         private Dictionary<string, object> getRow(Configuration configuration, IExcelDataReader reader)
         {
             var row = new Dictionary<string, object>();
-
             return row;
         }
     }

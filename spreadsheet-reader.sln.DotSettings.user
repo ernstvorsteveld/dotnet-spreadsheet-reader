@@ -6,5 +6,6 @@
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.JsonSchemaReaderTests.should_read_and_validate_jsonschema&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.ConfigurationReaderTests.should_read_configuration&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::9E358AB5-FF43-440D-8F87-827685157D12::net5.0::reader_test.FileStreamReaderTests.should_read_spreadsheet&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

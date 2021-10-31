@@ -29,6 +29,7 @@ dotnet add ./test/reader_test/reader_test.csproj reference ./src/reader/reader.c
 dotnet add ./src/configuration/configuration.csproj reference ./src/io/io.csproj
 
 dotnet add ./src/reader/reader.csproj reference ./src/configuration/configuration.csproj
+dotnet add ./test/reader_test/reader_test.csproj reference ./src/reader/reader.csproj
 ----
 
 .Dependencies
@@ -37,6 +38,7 @@ dotnet add ./src/reader/reader.csproj reference ./src/configuration/configuratio
 dotnet add package Newtonsoft.Json.Schema --version 3.0.14
 
 dotnet add package ExcelDataReader --version 3.6.0
+dotnet add package System.Text.Encoding.CodePages --version 5.0.0
 
 dotnet add package xunit --version 2.4.1
 dotnet add package FluentAssertions --version 6.0.0
