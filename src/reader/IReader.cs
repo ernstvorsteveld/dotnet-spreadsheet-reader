@@ -9,18 +9,4 @@ namespace reader
         Dictionary<TK, TV> Next();
     }
 
-    public class Count<T>
-    {
-        private readonly T _count;
-
-        public Count(T count)
-        {
-            this._count = count;
-        }
-
-        public T Get()
-        {
-            return _count;
-        }
-    }
 }

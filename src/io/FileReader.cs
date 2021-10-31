@@ -6,12 +6,12 @@ namespace io
 
         public FileReader(string filename)
         {
-            this._filename = filename;
+            _filename = filename;
         }
         
         public string Read()
         {
-            return System.IO.File.ReadAllText(this._filename);
+            return System.IO.File.ReadAllText(_filename);
         }
     }
 }

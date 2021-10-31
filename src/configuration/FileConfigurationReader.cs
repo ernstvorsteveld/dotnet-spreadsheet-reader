@@ -12,13 +12,13 @@ namespace configuration
 
         public FileConfigurationReader Schema(string schema)
         {
-            this._schema = schema;
+            _schema = schema;
             return this;
         }
 
         public FileConfigurationReader Configuration(string filename)
         {
-            this._filename = filename;
+            _filename = filename;
             return this;
         }
 
