@@ -1,0 +1,5 @@
+= Spreadsheet reader
+
+== Synoopsis
+
+Based upon: https://github.com/ExcelDataReader/ExcelDataReader[ExcelDataReader].
