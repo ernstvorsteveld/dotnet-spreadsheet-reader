@@ -9,8 +9,8 @@ namespace reader
 {
     public class FileStreamReader : IReader<long, string, object>
     {
-        private IExcelDataReader _reader;
-        private Configuration _configuration;
+        private readonly IExcelDataReader _reader;
+        private readonly Configuration _configuration;
 
         public FileStreamReader(
             SchemaFile schemaFile,
@@ -28,7 +28,7 @@ namespace reader
 
         public Count<long> Count()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void Skip()
