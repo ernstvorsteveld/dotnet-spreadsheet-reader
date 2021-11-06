@@ -11,12 +11,13 @@ namespace configuration_test
         [Fact]
         public void should_read_configuration()
         {
-            var reader = new FileConfigurationReader();
-            var configuration = reader
-                .Schema("configuration_schema.json")
-                .Configuration("configuration.json")
-                .Execute();
+            var reader = new FileConfigurationReader("configuration_schema.json", "configuration.json");
+            var configuration = reader.Execute();
             configuration.Mappings.Count.Should().Be(1);
+            var mapping = configuration.Mappings[0];
+            mapping.From.Column.Should().Be("SupplierNumber");
+            mapping.From.Type.Should().Be("string");
+            mapping.To.Destination.Should().Be("supplier");
         }
     }
 }

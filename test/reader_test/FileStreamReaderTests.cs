@@ -1,3 +1,4 @@
+using System;
 using reader;
 using Xunit;
 using FluentAssertions;
@@ -9,11 +10,15 @@ namespace reader_test
         [Fact]
         public void should_read_spreadsheet()
         {
-            var reader = new FileStreamReader()
-                .Configuration("configuration_schema.json", "configuration.json")
-                .FilePath("products1.xlsx");
+            var reader = new FileStreamReaderBuilder()
+                .Schema("configuration_schema.json")
+                .Configuration("configuration.json")
+                .FilePath("products1.xlsx")
+                .Create();
             var line = reader.Next();
-            ((string) line["supplier"]).Should().Be("none");
+            ((double) line["supplier"]).Should().Be(791080);
+            line = reader.Next();
+            ((double) line["supplier"]).Should().Be(791080);
         }
     }
 }

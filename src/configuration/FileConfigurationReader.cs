@@ -11,16 +11,10 @@ namespace configuration
         private string _filename;
         private string _schema;
 
-        public FileConfigurationReader Schema(string schema)
-        {
-            _schema = schema;
-            return this;
-        }
-
-        public FileConfigurationReader Configuration(string filename)
+        public FileConfigurationReader(string schema, string filename)
         {
             _filename = filename;
-            return this;
+            _schema = schema;
         }
 
         public Configuration Execute()

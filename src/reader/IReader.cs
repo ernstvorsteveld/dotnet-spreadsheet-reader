@@ -5,7 +5,11 @@ namespace reader
     public interface IReader<T, TK, TV>
     {
         Count<T> Count();
-        Dictionary<TK, TV> Next();
+        IDictionary<TK, TV> Next();
+    }
+
+    public enum Attributes {
+        Supplier
     }
 
 }

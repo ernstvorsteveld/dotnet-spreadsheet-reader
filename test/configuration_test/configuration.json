@@ -2,9 +2,10 @@
   "configuration_description" : "erdgaz",
   "mappings" : [
     {
+      "index" : 1,
       "from" : {
         "column": "SupplierNumber",
-        "from_type": "integer"
+        "from_type": "string"
       },
       "to" : {
         "destination": "supplier"

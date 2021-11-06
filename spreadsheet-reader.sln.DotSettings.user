@@ -2,10 +2,24 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
   &lt;Assembly Path="/Users/ernstvorsteveld/.nuget/packages/exceldatareader/3.6.0/lib/netstandard2.0/ExcelDataReader.dll" /&gt;
 &lt;/AssemblyExplorer&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=55d39875_002Dfc1e_002D43ed_002Dba82_002Df6f6b7ae2c7c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="should_read_and_validate_jsonschema" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	
+	
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=893c49c2_002Dd241_002D4a01_002Db910_002D137195bed7de/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="should_read_configuration" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.JsonSchemaReaderTests.should_read_and_validate_jsonschema&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.ConfigurationReaderTests.should_read_configuration&lt;/TestId&gt;
-    &lt;TestId&gt;xUnit::9E358AB5-FF43-440D-8F87-827685157D12::net5.0::reader_test.FileStreamReaderTests.should_read_spreadsheet&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e3ad5756_002D67ca_002D4b3a_002Dabb0_002D5a753471f4c8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from FileStreamReaderTests.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Or&gt;
+    &lt;ProjectFile&gt;9E358AB5-FF43-440D-8F87-827685157D12/f:FileStreamReaderTests.cs&lt;/ProjectFile&gt;
+    &lt;TestAncestor&gt;
+      &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.JsonSchemaReaderTests&lt;/TestId&gt;
+    &lt;/TestAncestor&gt;
+  &lt;/Or&gt;
+&lt;/SessionState&gt;</s:String>
+	
+	
+	
+	
+	</wpf:ResourceDictionary>

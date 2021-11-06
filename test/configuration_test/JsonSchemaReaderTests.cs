@@ -14,7 +14,7 @@ namespace configuration_test
             schemaJson.Should().NotBeNull();
 
             var schema = JSchema.Parse(schemaJson);
-            schema.Description.Should().Be("Schema for configuration.");
+            schema.Description.Should().Be("Schema for configuration of Erdgaz products.");
         }
     }
 }
