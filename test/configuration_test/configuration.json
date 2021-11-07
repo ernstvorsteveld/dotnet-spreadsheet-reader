@@ -1,5 +1,13 @@
 {
   "configuration_description" : "erdgaz",
+  "header" : {
+    "read" : true,
+    "skip_before" : 0,
+    "skip_after" : 0
+  },
+  "formats" : {
+    "date_format" : "dd-MM-yy"
+  },
   "mappings" : [
     {
       "index" : 1,

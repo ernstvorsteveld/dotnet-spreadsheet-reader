@@ -1,9 +1,13 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 using configuration;
 using ExcelDataReader;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace reader
 {
@@ -38,41 +42,64 @@ namespace reader
 
         public IDictionary<string, object> Next()
         {
-            var row = GetRow(_reader);
+            var row = GetRow();
             return row;
         }
 
-        private IDictionary<string, object> GetRow(IDataReader reader)
+        private IDictionary<string, object> GetRow()
         {
-            while (reader.Read())
+            while (_reader.Read())
             {
-                return ReadLine(reader);
+                return ReadLine(_reader);
             }
 
             return null;
         }
 
+        private void SkipBefore()
+        {
+            Skip(_configuration.Header.SkipBefore);
+        }
+
+        private void SkipAfter()
+        {
+            Skip(_configuration.Header.SkipAfter);
+        }
+
+        private void Skip(int lines)
+        {
+            for (var i = 0; i < lines; i++)
+            {
+                _reader.Read();
+            }
+        }
+
         private IDictionary<string, object> ReadLine(IDataRecord excelDataReader)
         {
             IDictionary<string, object> row = new Dictionary<string, object>();
-            var i = 0;
             foreach (var mapping in _configuration.Mappings)
             {
                 switch (mapping.From.Type)
                 {
                     case "int32":
                     {
-                        row.Add(mapping.To.Destination, excelDataReader.GetInt32(i));
+                        row.Add(mapping.To.Destination, excelDataReader.GetInt32(mapping.Index));
                         break;
                     }
                     case "double":
                     {
-                        row.Add(mapping.To.Destination, _reader.GetDouble(i));
+                        row.Add(mapping.To.Destination, _reader.GetDouble(mapping.Index));
                         break;
                     }
                     case "string":
                     {
-                        row.Add(mapping.To.Destination, excelDataReader.GetString(i));
+                        row.Add(mapping.To.Destination, excelDataReader.GetString(mapping.Index));
+                        break;
+                    }
+                    case "date":
+                    {
+                        var value = excelDataReader.GetString(mapping.Index);
+                        row.Add(mapping.To.Destination, FormatDate(value, mapping.From.Format));
                         break;
                     }
                     default:
@@ -80,11 +107,15 @@ namespace reader
                         throw new ElementNotFoundException(mapping);
                     }
                 }
-
-                i++;
             }
 
             return row;
+        }
+
+        private string FormatDate(string value, string pattern)
+        {
+            DateTime.TryParseExact(value, pattern, null, DateTimeStyles.None, out var parsedDate);
+            return parsedDate.ToString(_configuration.Formats.DateFormat);
         }
     }
 

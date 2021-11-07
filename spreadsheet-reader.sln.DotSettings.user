@@ -2,6 +2,10 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;
   &lt;Assembly Path="/Users/ernstvorsteveld/.nuget/packages/exceldatareader/3.6.0/lib/netstandard2.0/ExcelDataReader.dll" /&gt;
 &lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5da84c4c_002Dcf65_002D424a_002Da39c_002D82b5b7b78b1e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from FileStreamReaderTests.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;ProjectFile&gt;9E358AB5-FF43-440D-8F87-827685157D12/f:FileStreamReaderTests.cs&lt;/ProjectFile&gt;
+&lt;/SessionState&gt;</s:String>
+	
 	
 	
 	
@@ -10,14 +14,9 @@
     &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.ConfigurationReaderTests.should_read_configuration&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e3ad5756_002D67ca_002D4b3a_002Dabb0_002D5a753471f4c8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from FileStreamReaderTests.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;Or&gt;
-    &lt;ProjectFile&gt;9E358AB5-FF43-440D-8F87-827685157D12/f:FileStreamReaderTests.cs&lt;/ProjectFile&gt;
-    &lt;TestAncestor&gt;
-      &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.JsonSchemaReaderTests&lt;/TestId&gt;
-    &lt;/TestAncestor&gt;
-  &lt;/Or&gt;
-&lt;/SessionState&gt;</s:String>
+	
+	
+	
 	
 	
 	

@@ -1,9 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Product",
-  "description": "A product from Acme's catalog",
+  "title": "Product schema Erdgaz",
+  "description": "Schema for configuration of Erdgaz products.",
   "type": "object",
   "properties": {
+    "header": {
+      "$ref": "#/$defs/header"
+    },
+    "formats" : {
+      "$ref" : "#/$defs/formats"
+    },
     "mappings": {
       "type": "array",
       "items": {
@@ -19,10 +25,38 @@
   },
   "additionalProperties": false,
   "required": [
+    "header",
     "mappings",
     "configuration_description"
   ],
   "$defs": {
+    "header": {
+      "type": "object",
+      "properties": {
+        "read": {
+          "type": "boolean"
+        },
+        "skip_before" : {
+          "type" : "integer"
+        },
+        "skip_after": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "read"
+      ]
+    },
+    "formats" : {
+      "type" : "object",
+      "properties" : {
+        "date_format" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "mapping": {
       "type": "object",
       "properties": {
@@ -60,7 +94,8 @@
       },
       "additionalProperties": false,
       "required": [
-        "column", "from_type"
+        "column",
+        "from_type"
       ]
     },
     "to": {
@@ -70,6 +105,10 @@
         }
       }
     },
-    "required" : ["index", "from", "to"]
+    "required": [
+      "index",
+      "from",
+      "to"
+    ]
   }
 }

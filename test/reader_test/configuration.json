@@ -1,5 +1,11 @@
 {
   "configuration_description" : "erdgaz",
+  "header" : {
+    "read" : true
+  },
+  "formats" : {
+    "date_format" : "dd-MM-yyyy"
+  },
   "mappings" : [
     {
       "index" : 0,
@@ -9,6 +15,37 @@
       },
       "to" : {
         "destination": "supplier"
+      }
+    },
+    {
+      "index" : 1,
+      "from" : {
+        "column": "TariffName",
+        "from_type": "string"
+      },
+      "to" : {
+        "destination": "tariff_name"
+      }
+    },
+    {
+      "index" : 2,
+      "from" : {
+        "column": "TariffCode",
+        "from_type": "string"
+      },
+      "to" : {
+        "destination": "tariff_code"
+      }
+    },
+    {
+      "index" : 22,
+      "from" : {
+        "column": "ValidFrom",
+        "from_type": "date",
+        "from_format" : "dd.MM.yyyy"
+      },
+      "to" : {
+        "destination": "valid_from"
       }
     }
   ]
