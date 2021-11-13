@@ -10,42 +10,46 @@
     {
       "index" : 0,
       "from" : {
-        "column": "SupplierNumber",
+        "from_column": "SupplierNumber",
         "from_type": "double"
       },
       "to" : {
-        "destination": "supplier"
+        "to_destination": "supplier",
+        "to_type" : "double"
       }
     },
     {
       "index" : 1,
       "from" : {
-        "column": "TariffName",
+        "from_column": "TariffName",
         "from_type": "string"
       },
       "to" : {
-        "destination": "tariff_name"
+        "to_destination": "tariff_name"
       }
     },
     {
       "index" : 2,
       "from" : {
-        "column": "TariffCode",
-        "from_type": "string"
+        "from_column": "TariffCode",
+        "from_type": "string",
+        "from_pattern" : "^[\\x20-\\x7E]+"
       },
       "to" : {
-        "destination": "tariff_code"
+        "to_destination": "tariff_code"
       }
     },
     {
       "index" : 22,
       "from" : {
-        "column": "ValidFrom",
-        "from_type": "date",
+        "from_column": "ValidFrom",
+        "from_type": "string",
+        "from_pattern" : "date",
         "from_format" : "dd.MM.yyyy"
       },
       "to" : {
-        "destination": "valid_from"
+        "to_destination": "valid_from",
+        "to_type" : "date"
       }
     }
   ]

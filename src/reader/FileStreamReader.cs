@@ -93,13 +93,7 @@ namespace reader
                     }
                     case "string":
                     {
-                        row.Add(mapping.To.Destination, excelDataReader.GetString(mapping.Index));
-                        break;
-                    }
-                    case "date":
-                    {
-                        var value = excelDataReader.GetString(mapping.Index);
-                        row.Add(mapping.To.Destination, FormatDate(value, mapping.From.Format));
+                        row.Add(HandleStringValue(excelDataReader, mapping));
                         break;
                     }
                     default:
@@ -110,6 +104,16 @@ namespace reader
             }
 
             return row;
+        }
+
+        private KeyValuePair<string, object> HandleStringValue(IDataRecord excelDataReader, Mapping mapping)
+        {
+            return mapping.From.Pattern switch
+            {
+                "date" => new KeyValuePair<string, object>(mapping.To.Destination,
+                    FormatDate(excelDataReader.GetString(mapping.Index), mapping.From.Format)),
+                _ => new KeyValuePair<string, object>(mapping.To.Destination, excelDataReader.GetString(mapping.Index))
+            };
         }
 
         private string FormatDate(string value, string pattern)

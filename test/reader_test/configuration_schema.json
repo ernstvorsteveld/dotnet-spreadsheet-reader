@@ -76,7 +76,7 @@
     },
     "from": {
       "properties": {
-        "column": {
+        "from_column": {
           "type": "string"
         },
         "from_type": {
@@ -90,20 +90,30 @@
         },
         "from_format": {
           "type": "string"
+        },
+        "from_pattern": {
+          "type": "string"
         }
       },
       "additionalProperties": false,
       "required": [
-        "column",
+        "from_column",
         "from_type"
       ]
     },
     "to": {
       "properties": {
-        "destination": {
+        "to_destination": {
+          "type": "string"
+        },
+        "to_type": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties" : false,
+      "required": [
+        "to_destination"
+      ]
     },
     "required": [
       "index",
