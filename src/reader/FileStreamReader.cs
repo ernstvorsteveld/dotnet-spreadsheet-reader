@@ -118,12 +118,12 @@ namespace reader
                 "date" => new KeyValuePair<string, object>(mapping.To.Destination,
                     FormatDate(excelDataReader.GetString(mapping.Index), mapping.From.Format)),
                 "boolean" => new KeyValuePair<string, object>(mapping.To.Destination,
-                    Convert(excelDataReader.GetString(mapping.Index))),
+                    FormatBoolean(excelDataReader.GetString(mapping.Index))),
                 _ => new KeyValuePair<string, object>(mapping.To.Destination, excelDataReader.GetString(mapping.Index))
             };
         }
 
-        private bool Convert(string value)
+        private bool FormatBoolean(string value)
         {
             return value.Equals("T", StringComparison.OrdinalIgnoreCase)
                    || value.Equals("true", StringComparison.OrdinalIgnoreCase)
