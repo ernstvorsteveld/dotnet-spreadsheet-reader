@@ -131,14 +131,6 @@ namespace reader
                    || value.Equals("1", StringComparison.OrdinalIgnoreCase);
         }
 
-        // private bool HandleBoolean(IDataRecord excelDataReader, int i)
-        // {
-        //     switch (excelDataReader.GetFieldType(i).FullName)
-        //     {
-        //         case "System."
-        //     }
-        // }
-
         private string FormatDate(string value, string pattern)
         {
             DateTime.TryParseExact(value, pattern, null, DateTimeStyles.None, out var parsedDate);
