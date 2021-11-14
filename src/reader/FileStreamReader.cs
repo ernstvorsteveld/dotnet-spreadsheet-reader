@@ -4,6 +4,7 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using configuration;
 using ExcelDataReader;
 
@@ -119,7 +120,8 @@ namespace reader
                     FormatDate(excelDataReader.GetString(mapping.Index), mapping.From.Format)),
                 "boolean" => new KeyValuePair<string, object>(key,
                     FormatBoolean(excelDataReader.GetString(mapping.Index))),
-                _ => new KeyValuePair<string, object>(key, excelDataReader.GetString(mapping.Index))
+                _ => new KeyValuePair<string, object>(key,
+                    ValidateString(excelDataReader.GetString(mapping.Index), mapping.From.RegEx))
             };
         }
 
@@ -133,6 +135,20 @@ namespace reader
             DateTime.TryParseExact(value, pattern, null, DateTimeStyles.None, out var parsedDate);
             return parsedDate.ToString(_configuration.Formats.DateFormat);
         }
+
+        public String ValidateString(string value, string pattern)
+        {
+            if (Regex.IsMatch(value, pattern))
+            {
+                return value;
+            }
+
+            throw new ValueDoesNotMatchExpression();
+        }
+    }
+
+    public class ValueDoesNotMatchExpression : Exception
+    {
     }
 
     public class XlsFile
