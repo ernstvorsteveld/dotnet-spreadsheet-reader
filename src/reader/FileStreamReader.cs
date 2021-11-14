@@ -96,6 +96,11 @@ namespace reader
                         row.Add(HandleStringValue(excelDataReader, mapping));
                         break;
                     }
+                    case "boolean":
+                    {
+                        row.Add(mapping.To.Destination, _reader.GetBoolean(mapping.Index));
+                        break;
+                    }
                     default:
                     {
                         throw new ElementNotFoundException(mapping);
@@ -112,9 +117,27 @@ namespace reader
             {
                 "date" => new KeyValuePair<string, object>(mapping.To.Destination,
                     FormatDate(excelDataReader.GetString(mapping.Index), mapping.From.Format)),
+                "boolean" => new KeyValuePair<string, object>(mapping.To.Destination,
+                    Convert(excelDataReader.GetString(mapping.Index))),
                 _ => new KeyValuePair<string, object>(mapping.To.Destination, excelDataReader.GetString(mapping.Index))
             };
         }
+
+
+        private bool Convert(string value)
+        {
+            return value.Equals("T", StringComparison.OrdinalIgnoreCase)
+                   || value.Equals("true", StringComparison.OrdinalIgnoreCase)
+                   || value.Equals("1", StringComparison.OrdinalIgnoreCase);
+        }
+
+        // private bool HandleBoolean(IDataRecord excelDataReader, int i)
+        // {
+        //     switch (excelDataReader.GetFieldType(i).FullName)
+        //     {
+        //         case "System."
+        //     }
+        // }
 
         private string FormatDate(string value, string pattern)
         {

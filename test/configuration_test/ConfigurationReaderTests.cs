@@ -14,8 +14,7 @@ namespace configuration_test
             configuration.Formats.DateFormat.Should().Be("dd-MM-yy");
             configuration.Mappings.Count.Should().Be(1);
             var mapping = configuration.Mappings[0];
-            mapping.Index.Should().Be(1);
-            mapping.Index.Should().Be(1);
+            mapping.Index.Should().Be(0);
             mapping.From.Column.Should().Be("SupplierNumber");
             mapping.From.Type.Should().Be("string");
             mapping.To.Destination.Should().Be("supplier");

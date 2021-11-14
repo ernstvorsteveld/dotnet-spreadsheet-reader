@@ -10,13 +10,13 @@
   },
   "mappings" : [
     {
-      "index" : 1,
+      "index" : 0,
       "from" : {
-        "column": "SupplierNumber",
+        "from_column": "SupplierNumber",
         "from_type": "string"
       },
       "to" : {
-        "destination": "supplier"
+        "to_destination": "supplier"
       }
     }
   ]

@@ -29,6 +29,10 @@ namespace reader_test
             ((string) values["tariff_name"]).Should().Be((string) line["tariff_name"]);
             ((string) values["tariff_code"]).Should().Be((string) line["tariff_code"]);
             ((string) values["valid_from"]).Should().Be((string) line["valid_from"]);
+            ((bool) values["is_ecological"]).Should().Be((bool) line["is_ecological"]);
+            ((bool) values["is_differential"]).Should().Be((bool) line["is_differential"]);
+            ((bool) values["is_default_tariff"]).Should().Be((bool) line["is_default_tariff"]);
+            ((bool) values["is_tiered_tariff"]).Should().Be((bool) line["is_tiered_tariff"]);
         }
 
         private static readonly IDictionary<string, object> line1 = new Dictionary<string, object>();
@@ -39,6 +43,10 @@ namespace reader_test
             line1.Add("tariff_name", "Erdgas12");
             line1.Add("tariff_code", "GP12214B");
             line1.Add("valid_from", "01-10-2021");
+            line1.Add("is_ecological", true);
+            line1.Add("is_differential", false);
+            line1.Add("is_default_tariff", false);
+            line1.Add("is_tiered_tariff", true);
         }
     }
 }

@@ -85,14 +85,21 @@
             "int32",
             "number",
             "double",
-            "date"
+            "date",
+            "boolean"
           ]
         },
         "from_format": {
           "type": "string"
         },
         "from_pattern": {
-          "type": "string"
+          "enum" : [
+            "date",
+            "boolean"
+          ]
+        },
+        "from_regex": {
+          "type" : "string"
         }
       },
       "additionalProperties": false,
@@ -104,9 +111,6 @@
     "to": {
       "properties": {
         "to_destination": {
-          "type": "string"
-        },
-        "to_type": {
           "type": "string"
         }
       },
