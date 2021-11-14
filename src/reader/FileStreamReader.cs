@@ -123,7 +123,6 @@ namespace reader
             };
         }
 
-
         private bool Convert(string value)
         {
             return value.Equals("T", StringComparison.OrdinalIgnoreCase)
