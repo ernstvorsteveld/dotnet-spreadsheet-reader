@@ -1,21 +1,26 @@
 {
-  "configuration_description" : "erdgaz",
-  "header" : {
-    "read" : true,
-    "skip_before" : 0,
-    "skip_after" : 0
+  "configuration_description": "erdgaz",
+  "header": {
+    "read": true,
+    "skip_before": 0,
+    "skip_after": 0
   },
-  "formats" : {
-    "date_format" : "dd-MM-yy"
+  "formats": {
+    "date_format": "dd-MM-yy",
+    "true_formats": [
+      "T",
+      "true",
+      "1"
+    ]
   },
-  "mappings" : [
+  "mappings": [
     {
-      "index" : 0,
-      "from" : {
+      "index": 0,
+      "from": {
         "from_column": "SupplierNumber",
         "from_type": "string"
       },
-      "to" : {
+      "to": {
         "to_destination": "supplier"
       }
     }

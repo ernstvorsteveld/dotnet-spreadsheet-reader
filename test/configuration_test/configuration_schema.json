@@ -7,8 +7,8 @@
     "header": {
       "$ref": "#/$defs/header"
     },
-    "formats" : {
-      "$ref" : "#/$defs/formats"
+    "formats": {
+      "$ref": "#/$defs/formats"
     },
     "mappings": {
       "type": "array",
@@ -36,8 +36,8 @@
         "read": {
           "type": "boolean"
         },
-        "skip_before" : {
-          "type" : "integer"
+        "skip_before": {
+          "type": "integer"
         },
         "skip_after": {
           "type": "integer"
@@ -48,11 +48,17 @@
         "read"
       ]
     },
-    "formats" : {
-      "type" : "object",
-      "properties" : {
-        "date_format" : {
-          "type" : "string"
+    "formats": {
+      "type": "object",
+      "properties": {
+        "date_format": {
+          "type": "string"
+        },
+        "true_formats": {
+          "type" : "array",
+          "itmes" : {
+            "type" : "string"
+          }
         }
       },
       "additionalProperties": false
@@ -93,13 +99,13 @@
           "type": "string"
         },
         "from_pattern": {
-          "enum" : [
+          "enum": [
             "date",
             "boolean"
           ]
         },
         "from_regex": {
-          "type" : "string"
+          "type": "string"
         }
       },
       "additionalProperties": false,
@@ -114,7 +120,7 @@
           "type": "string"
         }
       },
-      "additionalProperties" : false,
+      "additionalProperties": false,
       "required": [
         "to_destination"
       ]

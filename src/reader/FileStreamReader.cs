@@ -125,9 +125,7 @@ namespace reader
 
         private bool FormatBoolean(string value)
         {
-            return value.Equals("T", StringComparison.OrdinalIgnoreCase)
-                   || value.Equals("true", StringComparison.OrdinalIgnoreCase)
-                   || value.Equals("1", StringComparison.OrdinalIgnoreCase);
+            return _configuration.Formats.BooleanTrueFormats.Contains(value);
         }
 
         private string FormatDate(string value, string pattern)

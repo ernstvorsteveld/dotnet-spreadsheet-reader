@@ -4,7 +4,12 @@
     "read" : true
   },
   "formats" : {
-    "date_format" : "dd-MM-yyyy"
+    "date_format" : "dd-MM-yyyy",
+    "true_formats": [
+      "T",
+      "true",
+      "1"
+    ]
   },
   "mappings" : [
     {

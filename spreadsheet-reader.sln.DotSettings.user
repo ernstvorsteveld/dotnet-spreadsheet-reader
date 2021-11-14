@@ -13,6 +13,12 @@
     &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.ConfigurationReaderTests.should_read_configuration&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=95945220_002D4a68_002D4e58_002Da7b6_002Daaeca3243f26/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ConfigurationReaderTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.ConfigurationReaderTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::E45621EA-16C6-46BE-91D2-D756655009CA::net5.0::configuration_test.JsonSchemaReaderTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	
 	
 	
