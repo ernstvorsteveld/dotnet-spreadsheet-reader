@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using configuration;
 using reader;
 using Xunit;
 using FluentAssertions;

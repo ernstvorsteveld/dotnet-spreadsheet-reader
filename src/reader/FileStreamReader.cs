@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
@@ -7,7 +6,6 @@ using System.IO;
 using System.Linq;
 using configuration;
 using ExcelDataReader;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace reader
 {
@@ -79,16 +77,17 @@ namespace reader
             IDictionary<string, object> row = new Dictionary<string, object>();
             foreach (var mapping in _configuration.Mappings)
             {
+                var key = mapping.From.Key;
                 switch (mapping.From.Type)
                 {
                     case "int32":
                     {
-                        row.Add(mapping.To.Destination, excelDataReader.GetInt32(mapping.Index));
+                        row.Add(key, excelDataReader.GetInt32(mapping.Index));
                         break;
                     }
                     case "double":
                     {
-                        row.Add(mapping.To.Destination, _reader.GetDouble(mapping.Index));
+                        row.Add(key, _reader.GetDouble(mapping.Index));
                         break;
                     }
                     case "string":
@@ -98,7 +97,7 @@ namespace reader
                     }
                     case "boolean":
                     {
-                        row.Add(mapping.To.Destination, _reader.GetBoolean(mapping.Index));
+                        row.Add(key, _reader.GetBoolean(mapping.Index));
                         break;
                     }
                     default:
@@ -113,13 +112,14 @@ namespace reader
 
         private KeyValuePair<string, object> HandleStringValue(IDataRecord excelDataReader, Mapping mapping)
         {
+            var key = mapping.From.Key;
             return mapping.From.Pattern switch
             {
-                "date" => new KeyValuePair<string, object>(mapping.To.Destination,
+                "date" => new KeyValuePair<string, object>(key,
                     FormatDate(excelDataReader.GetString(mapping.Index), mapping.From.Format)),
-                "boolean" => new KeyValuePair<string, object>(mapping.To.Destination,
+                "boolean" => new KeyValuePair<string, object>(key,
                     FormatBoolean(excelDataReader.GetString(mapping.Index))),
-                _ => new KeyValuePair<string, object>(mapping.To.Destination, excelDataReader.GetString(mapping.Index))
+                _ => new KeyValuePair<string, object>(key, excelDataReader.GetString(mapping.Index))
             };
         }
 

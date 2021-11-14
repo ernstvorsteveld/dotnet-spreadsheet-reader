@@ -16,7 +16,8 @@
       "index" : 0,
       "from" : {
         "from_column": "SupplierNumber",
-        "from_type": "double"
+        "from_type": "double",
+        "from_key" : "supplier"
       },
       "to" : {
         "to_destination": "supplier"
@@ -26,7 +27,8 @@
       "index" : 1,
       "from" : {
         "from_column": "TariffName",
-        "from_type": "string"
+        "from_type": "string",
+        "from_key" : "tariff_name"
       },
       "to" : {
         "to_destination": "tariff_name"
@@ -37,7 +39,8 @@
       "from" : {
         "from_column": "TariffCode",
         "from_type": "string",
-        "from_regex" : "^[\\x20-\\x7E]+"
+        "from_regex" : "^[\\x20-\\x7E]+",
+        "from_key" : "tariff_code"
       },
       "to" : {
         "to_destination": "tariff_code"
@@ -47,7 +50,8 @@
       "index" : 6,
       "from" : {
         "from_column": "IsEcological",
-        "from_type": "boolean"
+        "from_type": "boolean",
+        "from_key" : "is_ecological"
       },
       "to" : {
         "to_destination": "is_ecological"
@@ -57,7 +61,8 @@
       "index" : 7,
       "from" : {
         "from_column": "isDifferential",
-        "from_type": "boolean"
+        "from_type": "boolean",
+        "from_key" : "is_differential"
       },
       "to" : {
         "to_destination": "is_differential"
@@ -68,7 +73,8 @@
       "from" : {
         "from_column": "IsDefaultTariff",
         "from_type": "string",
-        "from_pattern" : "boolean"
+        "from_pattern" : "boolean",
+        "from_key" : "is_default_tariff"
       },
       "to" : {
         "to_destination": "is_default_tariff"
@@ -79,7 +85,8 @@
       "from" : {
         "from_column": "IsTieredTariff",
         "from_type": "string",
-        "from_pattern" : "boolean"
+        "from_pattern" : "boolean",
+        "from_key" : "is_tiered_tariff"
       },
       "to" : {
         "to_destination": "is_tiered_tariff"
@@ -91,7 +98,8 @@
         "from_column": "ValidFrom",
         "from_type": "string",
         "from_pattern" : "date",
-        "from_format" : "dd.MM.yyyy"
+        "from_format" : "dd.MM.yyyy",
+        "from_key" : "valid_from"
       },
       "to" : {
         "to_destination": "valid_from"

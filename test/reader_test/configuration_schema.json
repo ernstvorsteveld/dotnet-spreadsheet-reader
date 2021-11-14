@@ -106,12 +106,16 @@
         },
         "from_regex": {
           "type": "string"
+        },
+        "from_key" : {
+          "type" : "string"
         }
       },
       "additionalProperties": false,
       "required": [
         "from_column",
-        "from_type"
+        "from_type",
+        "from_key"
       ]
     },
     "to": {
