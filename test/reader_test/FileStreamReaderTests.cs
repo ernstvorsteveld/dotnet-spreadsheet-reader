@@ -20,6 +20,16 @@ namespace reader_test
             validate(reader.Next(), line1);
         }
 
+        [Fact]
+        public void should_fail_on_regular_expression()
+        {
+            var reader = new FileStreamReaderBuilder()
+                .Schema("configuration_schema.json")
+                .Configuration("exception.json")
+                .FilePath("products1.xlsx")
+                .Create();
+        }
+
         private void validate(IDictionary<string, object> values, IDictionary<string, object> line)
         {
             ((double) values["supplier"]).Should().Be((double) line1["supplier"]);

@@ -32,6 +32,9 @@
     <Content Include="configuration_schema.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="exception.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="products1.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
